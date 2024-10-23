@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memodifikasi Soal Nomor 3 Kemarin</title>
+</head>
+<body>
+    <script>
+       class RekeningBank {
+    static daftarRekening = []; 
+    #nomorRekening;
+    #saldo;
+
+    constructor(nomorRekening, saldo) {
+        this.setnomor = nomorRekening; 
+        this.setsaldo = saldo;
+    }
+
+    set setnomor(nomor) {
+        if (RekeningBank.daftarRekening.includes(nomor)) {
+            throw new Error(`Nomor rekening ${nomor} sudah terdaftar.`);
+        }
+        this.#nomorRekening = nomor;
+        RekeningBank.daftarRekening.push(nomor);
+    }
+
+    get setnomor() {
+        return this.#nomorRekening;
+    }
+
+    get setsaldo() {
+        return this.#saldo;
+    }
+
+    set setsaldo(value) {
+        this.#saldo = value;
+    }
+
+    #setorUang(jumlah) {
+        this.#saldo += jumlah;
+        console.log(`Uang sebesar ${jumlah} disetorkan. Saldo sekarang: ${this.#saldo}`);
+    }
+
+    #tarikUang(jumlah) {
+        if (jumlah > this.#saldo) {
+            console.log(`Saldo tidak cukup untuk menarik ${jumlah}. Saldo sekarang: ${this.#saldo}`);
+        } else {
+            this.#saldo -= jumlah;
+            console.log(`Uang sebesar ${jumlah} ditarik. Saldo sekarang: ${this.#saldo}`);
+        }
+    }
+
+    #cekSaldo() {
+        console.log(`Saldo saat ini: ${this.#saldo}`);
+    }
+
+    bank(tindakan, jumlah) {
+        if (tindakan === 'setor') {
+            return this.#setorUang(jumlah);
+        } else if (tindakan === 'tarik') {
+            return this.#tarikUang(jumlah);
+        } else {
+            return this.#cekSaldo();
+        }
+    }
+}
+
+try {
+    let rekening1 = new RekeningBank(123123, 100000);
+    rekening1.bank('setor', 50000); 
+    console.log(rekening1.setnomor);
+    console.log(rekening1.setsaldo);
+    rekening1.bank('tarik', 30000); 
+    rekening1.bank('cek'); 
+
+    let rekening2 = new RekeningBank(123123, 1500);
+    } catch (error) {
+    console.log(error.message);
+}
+
+    </script>
+</body>
+</html>

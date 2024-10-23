@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memodifikasi Soal Nomor 2 Kemarin</title>
+</head>
+<body>
+    <script>
+         class persegiPanjang {
+    #panjang;
+    #lebar;
+
+    constructor() {
+        this.#panjang = 0;
+        this.#lebar = 0;
+    }
+
+    get setPanjang() {
+        return this.#panjang;
+    }
+
+    set setPanjang(value) {
+        if (value < 0) {
+            console.log("Harap masukan angka!"); 
+        } else {
+            this.#panjang = value;
+        }
+    }
+
+    get setLebar() {
+        return this.#lebar;
+    }
+
+    set setLebar(value) {
+        if (value < 0) {
+            console.log("Masukan angka!"); 
+        } else {
+            this.#lebar = value;
+        }
+    }
+
+    #LuasPersegiPanjang() {
+        return this.#panjang * this.#lebar;
+    }
+
+    #KelilingPersegiPanjang() {
+        return 2 * (this.#panjang + this.#lebar);
+    }
+
+    count(luas) {
+        if (luas) {
+            return this.#LuasPersegiPanjang();
+        } else {
+            return this.#KelilingPersegiPanjang();
+        }
+    }
+}
+
+const PersegiPanjang = new persegiPanjang();
+PersegiPanjang.setPanjang = 5;
+PersegiPanjang.setLebar = 2;
+console.log(PersegiPanjang.setPanjang);
+console.log(PersegiPanjang.setLebar);
+
+const luas = PersegiPanjang.count('luas');
+console.log(`Luas: ${luas}`);
+
+const keliling = PersegiPanjang.count();
+console.log(`Keliling: ${keliling}`);
+    </script>
+</body>
+</html>

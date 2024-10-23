@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memodifikasi Soal Nomor 5 Sebelumnya Dengan Setter & Getter</title>
+</head>
+<body>
+    <script>
+         class Book {
+    constructor(title, author, year) {
+      this.title = title; 
+      this.author = author;
+      this.year = year;
+    }
+  
+    get title() {
+      return this._title;
+    }
+  
+    set title(value) {
+      if (typeof value !== 'string' || value.trim().length === 0) {
+        console.log('Title tidak boleh kosong dan harus berupa string');
+      } else {
+        this._title = value;
+      }
+    }
+  
+    bookDetail() {
+      console.log(`Judul Buku: ${this.title}`);
+      console.log(`Penulis Buku: ${this.author}`);
+      console.log(`Tahun Terbit: ${this.year}`);
+    }
+  }
+  
+  class Ebook extends Book {
+    constructor(title, author, year, harga) {
+      super(title, author, year);
+      this.harga = harga; 
+    }
+  
+    get harga() {
+      return this._harga;
+    }
+  
+    set harga(value) {
+      if (typeof value !== 'number' || value < 0) {
+        console.log('Harga harus menggunakan angka positif');
+      } else {
+        this._harga = value;
+      }
+    }
+  
+    bookDetail() {
+      super.bookDetail();
+      console.log(`Harga: Rp ${this.harga}`);
+    }
+  }
+  
+  const ebook = new Ebook("Hujan", "Tere Liye", "2015", 250000);
+  ebook.bookDetail();  
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class cetakNama{
+            #name;
+            constructor(name) {
+                this.#name = name;
+            }
+
+            get getName() {
+                return this.#name;
+            }
+
+            set setName(value){
+                this.#name = value;
+            }
+
+            #sayHello(name){
+                console.log('HAIIIII');
+            }
+
+            #sayBye(){
+                console.log('BAYY');
+            }
+
+            #say(name){
+                if (name) {
+                    this.#sayHello(name);
+                } else {
+                    this.#sayBye(name);
+                }
+            }
+        }
+
+        const name1 = new cetakNama('Keisha');
+        name1.name = "Athaya";
+        console.info(name1);
+        console.log(name1.name);
+        console.log(name1.getName);
+
+        const name2 = new cetakNama('Naufal');
+        console.log(name2.getName);
+        
+    </script>
+</body>
+</html>

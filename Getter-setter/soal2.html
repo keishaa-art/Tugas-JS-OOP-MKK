@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memodifikasi Soal Nomor 2 Sebelumnya Dengan Setter & Getter - Soal 1</title>
+</head>
+<body>
+    <script>
+        class persegiPanjang {
+        constructor() {
+            this.panjang;
+            this.lebar;
+        }
+
+        set setPanjang(value){
+            if(value < 0){
+                   console.log("Harap masukan angka!"); 
+                } else {
+                    this.panjang = value;
+                }
+        }
+
+        set setLebar(value){
+            if(value < 0){
+                   console.log("Masukan angka!"); 
+                } else {
+                    this.lebar = value;
+                }
+        }
+
+            LuasPersegiPanjang(){
+                return this.panjang * this.lebar;
+            }
+
+            KelilingPersegiPanjang(){
+               return 2 * (this.panjang + this.lebar);
+            }
+    
+    }
+        
+        const PersegiPanjang = new persegiPanjang();
+        PersegiPanjang.panjang = -5;
+        PersegiPanjang.lebar = -1;
+        console.log(PersegiPanjang.panjang);
+        console.log(PersegiPanjang.lebar);
+        console.log("Luas : "  +PersegiPanjang.LuasPersegiPanjang());
+        console.log("Keliling :" +PersegiPanjang.KelilingPersegiPanjang());
+        
+    </script>
+</body>
+</html>

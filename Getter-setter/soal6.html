@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memodifikasi Soal Nomor 6 Sebelumnya Dengan Setter & Getter</title>
+</head>
+<body>
+    <script>
+            class Employee{
+  constructor(nama, gaji){
+  this.nama = nama;
+  this.gaji = gaji;
+}
+    get nama() {
+      return this._nama;
+    }
+  
+    set nama(value) {
+      if (typeof value !== 'string' || value.trim().length === 0) {
+        console.log('nama harus berupa string');
+      } else {
+        this._nama = value;
+      }
+    }
+  
+hitungGajiTahunan(){
+  return this.gaji * 12;
+}
+}
+
+class manager extends Employee{
+  constructor(nama, gaji,departmen){
+      super (nama,gaji);
+      this.departmen = departmen;
+  }
+  hitungGajiBonus(){
+      return super.hitungGajiTahunan() * 0.1 ;
+  }
+}
+
+const manager1 = new manager("Lamira Yumna", 1000000, "Marketing");
+const manager2 = new manager("Keisha Athaya", 12000000000, "Website Soft Skill");
+
+console.log(`Nama Pegawai : ${manager1.nama}`);
+console.log(`Gaji Bulanan : ${manager1.gaji}`);
+console.log(`Manager : ${manager1.nama}`);
+console.log(`Departmen : ${manager1.departmen}`)
+console.log(`Bonus (10% dari gaji pokok) : 0,1`)
+console.log(`Gaji Tahunan : Rp${manager1.hitungGajiBonus()}`);
+
+console.log(`Nama Pegawai : ${manager2.nama}`);
+console.log(`Gaji Bulanan : ${manager2.gaji}`);
+console.log(`Manager : ${manager2.nama}`);
+console.log(`Departmen : ${manager2.departmen}`)
+console.log(`Bonus (10% dari gaji pokok) : 0,1`)
+console.log(`Gaji Tahunan : Rp${manager2.hitungGajiBonus()}`);
+
+    </script>
+</body>
+</html>

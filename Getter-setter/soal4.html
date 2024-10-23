@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memodifikasi Soal Nomor 4 Sebelumnya Dengan Setter & Getter</title>
+</head>
+<body>
+    <script>
+        class Bank {
+            constructor(namaBank) {
+                this.namaBank = namaBank;
+                this._kantorCabang = [];
+            }
+
+            get kantorCabang() {
+                return this._kantorCabang;
+            }
+
+            set tambahKantorCabang(namaCabang) {
+                if (this._kantorCabang.includes(namaCabang)) {
+                    throw new Error(`Nama kantor cabang sudah terdaftar.`);
+                }
+                this._kantorCabang.push(namaCabang);
+            }
+
+            hapusKantorCabang(namaCabang) {
+                this._kantorCabang = this._kantorCabang.filter(cabang => cabang !== namaCabang);
+            }
+
+            tampilkanKantorCabang() {
+                console.log(`Kantor cabang ${this.namaBank}:`);
+                this._kantorCabang.forEach(cabang => console.log(cabang));
+            }
+        }
+
+        const bankSaya = new Bank("Bank ABC");
+
+        try {
+            bankSaya.tambahKantorCabang = "Cabang Jakarta"; 
+            bankSaya.tambahKantorCabang = "Cabang Bandung"; 
+            bankSaya.tambahKantorCabang = "Cabang Surabaya"; 
+
+            bankSaya.tambahKantorCabang = "Cabang Jakarta"; 
+        } catch (error) {
+            console.error(error.message);
+        }
+
+        bankSaya.tampilkanKantorCabang();
+
+        bankSaya.hapusKantorCabang("Cabang Bandung");
+
+        bankSaya.tampilkanKantorCabang();
+        console.info(bankSaya);
+           </script>
+</body>
+</html>
+    </script>
+</body>
+</html>

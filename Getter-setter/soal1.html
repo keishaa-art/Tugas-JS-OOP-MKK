@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memodifikasi Soal Nomor 1 Sebelumnya Dengan Setter & Getter</title>
+</head>
+<body>
+    <script>
+      class Person {
+            constructor() {
+            this.firstName;
+            this.lastName;
+            this.age;
+            }
+
+            set Fname(value) {
+                if (value.length == 0) {
+                    console.log("Nama tidak boleh kosong");
+                } else {
+                    this.firstName = value;
+                }
+            }
+
+            set Lname(value) {
+                if (value.length == 0) {
+                    console.log("Nama tidak boleh kosong");
+                } else {
+                    this.lastName = value;
+                }
+            }
+
+            set getAge(value) {
+                if (value < 0) {
+                    console.log("Umur tidak boleh kurang dari nol");
+                } else {
+                    this.age = value;
+                }
+            }
+
+            showDetails() {
+                console.log(`Hello, My name is ${this.firstName} ${this.lastName},n i'm ${this.age} y.o`
+            );
+            }
+        }
+
+        const kesa = new Person();
+        kesa.Fname = 'Keisha';
+        kesa.Lname = 'Athaya';
+        kesa.getAge = 2;
+        kesa.showDetails();
+        // const Cynthia = new Person();
+        // Cynthia.Fname = 'cynthia';
+        // Cynthia.Lname = 'quesions';
+        // Cynthia.getAge = 2;
+        // Cynthia.showDetails();
+    </script>
+</body>
+</html>

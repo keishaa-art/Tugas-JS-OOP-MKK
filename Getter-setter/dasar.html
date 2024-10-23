@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Struktur Dasar
+        class Person{
+            constructor(firstname, age){
+                this.firstname = firstname;
+                this.age = age;
+            }
+
+            get name(){
+                return this.firstname;
+            }
+
+            set name(value){
+                if(value.length === 0){
+                   console.log('Nama tidak boleh kosong yaa') 
+                } else {
+                    this.firstname = value;
+                }
+                
+            }
+
+            get getAge(){
+                return this.age = value;
+            }
+
+            set setAge(value) {
+                if(value < 0){
+                    console.log("Bayi main hp njr?baru jebol lu");
+                } else {
+                    this.age = value;
+                }
+            }
+
+            
+        }
+
+        const object1 = new Person("Keisha");
+        console.log(object1.firstname);
+        console.log(object1.name);
+
+        object1.name = '';
+        object1.setAge = -1;
+        console.log(object1.name);
+        console.log(object1.age);
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memodifikasi Soal Nomor 3 Sebelumnya Dengan Setter & Getter</title>
+</head>
+<body>
+    <script>
+class RekeningBank {
+            static daftarRekening = []; 
+
+            constructor(nomorRekening, saldoAwal) {
+                this.nomorRekening = nomorRekening;
+                this.saldo = saldoAwal;
+            }
+
+            set nomorRekening(nomor) {
+                if (RekeningBank.daftarRekening.includes(nomor)) {
+                    throw new Error(`Nomor rekening ${nomor} sudah terdaftar.`);
+                }
+                this._nomorRekening = nomor; 
+                RekeningBank.daftarRekening.push(nomor);
+            }
+
+            get nomorRekening() {
+                return this._nomorRekening;
+            }
+
+            setorUang(jumlah) {
+                this.saldo += jumlah;
+                console.log(`Uang sebesar ${jumlah} disetorkan. Saldo sekarang: ${this.saldo}`);
+            }
+
+            tarikUang(jumlah) {
+                if (jumlah > this.saldo) {
+                    console.log(`Saldo tidak cukup untuk menarik ${jumlah}. Saldo sekarang: ${this.saldo}`);
+                } else {
+                    this.saldo -= jumlah;
+                    console.log(`Uang sebesar ${jumlah} ditarik. Saldo sekarang: ${this.saldo}`);
+                }
+            }
+
+            cekSaldo() {
+                console.log(`Saldo saat ini: ${this.saldo}`);
+            }
+        }
+
+        try {
+            let rekening1 = new RekeningBank("001", 1000);
+            let rekening2 = new RekeningBank("002", 2000);
+            let rekening3 = new RekeningBank("003", 3000);
+
+            rekening1.setorUang(500);  
+            rekening1.tarikUang(200);  
+            rekening2.setorUang(1000); 
+            rekening2.tarikUang(3000); 
+            rekening3.cekSaldo();    
+
+            let rekening4 = new RekeningBank("001", 1500); 
+        } catch (error) {
+            console.log(error.message);
+        }
+    </script>
+</body>
+</html>
